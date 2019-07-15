@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+    <style>
+
+        #header {
+            top: 0px;
+            height: 50px;
+            width: 100%;
+            background-color: orangered;
+            text-align: center;            
+            font-size: 180%;            
+            font-family: Verdana;
+            color: white;
+        }
+
+        #formBorder {
+            border: solid;
+            border-color: orangered;             
+            margin-top: 50px;
+            padding-top: 60px;
+            padding-right: 80px;
+            padding-bottom: 60px;
+            padding-left: 80px;
+        }
+
+        label{
+
+            font-weight: bold;
+        }
+    
+        
+
+
+    </style>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+
+        <div id="header">Calculator</div>
+
+        <form id="formBorder" class="rounded">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstNumber">First Number</label>
+                    <input type="text" class="form-control" id="firstNumber" placeholder="First Number">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="secondNumber">Second Number</label>
+                    <input type="text" class="form-control" id="secondNumber" placeholder="Second Number">
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <input class="form-check-input" type="checkbox" id="addition">
+                    <label class="form-check-label" for="addition">Addition (+) </label>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <input class="form-check-input" type="checkbox" id="subtraction">
+                    <label class="form-check-label" for="subtraction">Subtraction (-) </label>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <input class="form-check-input" type="checkbox" id="multiplication">
+                    <label class="form-check-label" for="multiplication">Multiplication (x) </label>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <input class="form-check-input" type="checkbox" id="division">
+                    <label class="form-check-label" for="division">Division (/) </label>
+                </div>
+
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="form-group col-md-6">
+                    <label for="result">Result</label>
+                    <input type="text" class="form-control" id="result" placeholder="Result">
+                </div>
+            </div>
+
+
+        </form>
+
+        
+
+    </div>
+
+    
+
+
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            $('#addition').change(function () {
+                if (this.checked) {
+                    $("#subtraction").prop("checked", false);
+                    $("#multiplication").prop("checked", false);
+                    $("#division").prop("checked", false);
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    $("#result").val((firstNumber) + (secondNumber));
+                }
+            });
+
+            $('#subtraction').change(function () {
+                if (this.checked) {
+                    $("#addition").prop("checked", false);
+                    $("#multiplication").prop("checked", false);
+                    $("#division").prop("checked", false);
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    $("#result").val((firstNumber) - (secondNumber));
+                }
+            });
+
+            $('#multiplication').change(function () {
+                if (this.checked) {
+                    $("#addition").prop("checked", false);
+                    $("#subtraction").prop("checked", false);
+                    $("#division").prop("checked", false);
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    $("#result").val((firstNumber) * (secondNumber));
+                }
+            });
+
+            $('#division').change(function () {
+                if (this.checked) {
+                    $("#addition").prop("checked", false);
+                    $("#subtraction").prop("checked", false);
+                    $("#multiplication").prop("checked", false);
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    $("#result").val((firstNumber) / (secondNumber));
+                }
+            });
+
+        });
+
+    </script>
+</body>
+</html>
