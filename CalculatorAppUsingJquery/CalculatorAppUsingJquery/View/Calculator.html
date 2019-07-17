@@ -47,11 +47,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="firstNumber">First Number</label>
-                    <input type="text" class="form-control" id="firstNumber" placeholder="First Number">
+                    <input type="text" class="form-control" id="firstNumber" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="secondNumber">Second Number</label>
-                    <input type="text" class="form-control" id="secondNumber" placeholder="Second Number">
+                    <input type="text" class="form-control" id="secondNumber">
                 </div>
             </div>
 
@@ -102,53 +102,213 @@
     <script>
 
 
-        $(document).ready(function () {
+        $(document).ready(function () {       
+
+            $("#firstNumber").val(10);
+            $("#secondNumber").val(20);
+
+            var firstNumber = parseFloat($('#firstNumber').val());
+            var secondNumber = parseFloat($('#secondNumber').val());
+
+            $("#result").val((firstNumber) + (secondNumber));
+
+            $('#addition').prop("checked", true);
+                       
+            $("#firstNumber").keyup(function () {
+
+                if ($('#addition').prop("checked", true)) {
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+
+                    $("#result").val((firstNumber) + (secondNumber));
+                }             
+            });
+
+            $("#secondNumber").keyup(function () {
+
+                if ($('#addition').prop("checked", true)) {
+
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+
+                    $("#result").val((firstNumber) + (secondNumber));
+                }
+            });
+
+
 
             $('#addition').change(function () {
                 if (this.checked) {
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    
                     $("#subtraction").prop("checked", false);
                     $("#multiplication").prop("checked", false);
                     $("#division").prop("checked", false);
 
-                    var firstNumber = parseFloat($('#firstNumber').val());
-                    var secondNumber = parseFloat($('#secondNumber').val());
                     $("#result").val((firstNumber) + (secondNumber));
                 }
             });
 
             $('#subtraction').change(function () {
                 if (this.checked) {
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    
                     $("#addition").prop("checked", false);
                     $("#multiplication").prop("checked", false);
                     $("#division").prop("checked", false);
 
-                    var firstNumber = parseFloat($('#firstNumber').val());
-                    var secondNumber = parseFloat($('#secondNumber').val());
                     $("#result").val((firstNumber) - (secondNumber));
                 }
-            });
+                });
 
             $('#multiplication').change(function () {
                 if (this.checked) {
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+                    
                     $("#addition").prop("checked", false);
                     $("#subtraction").prop("checked", false);
                     $("#division").prop("checked", false);
 
-                    var firstNumber = parseFloat($('#firstNumber').val());
-                    var secondNumber = parseFloat($('#secondNumber').val());
                     $("#result").val((firstNumber) * (secondNumber));
+
                 }
             });
 
             $('#division').change(function () {
                 if (this.checked) {
+                    var firstNumber = parseFloat($('#firstNumber').val());
+                    var secondNumber = parseFloat($('#secondNumber').val());
+
+                    $('#division').prop("checked", true);
                     $("#addition").prop("checked", false);
                     $("#subtraction").prop("checked", false);
                     $("#multiplication").prop("checked", false);
 
+                    $("#result").val((firstNumber) / (secondNumber));
+
+                }
+            });
+
+
+            $('#addition').change(function () {
+                if (this.checked) {
+
+                    $("#firstNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#addition').prop("checked", true);
+                        $("#subtraction").prop("checked", false);
+                        $("#multiplication").prop("checked", false);
+                        $("#division").prop("checked", false);
+
+                        $("#result").val((firstNumber) + (secondNumber));
+                    });
+
+                    $("#secondNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#addition').prop("checked", true);
+                        $("#subtraction").prop("checked", false);
+                        $("#multiplication").prop("checked", false);
+                        $("#division").prop("checked", false);
+
+                        $("#result").val((firstNumber) + (secondNumber));
+                    });
+                }
+            });
+
+            $('#subtraction').change(function () {
+                if (this.checked) {
+
+                    $("#firstNumber").keyup(function () {
                     var firstNumber = parseFloat($('#firstNumber').val());
                     var secondNumber = parseFloat($('#secondNumber').val());
-                    $("#result").val((firstNumber) / (secondNumber));
+
+                    $('#subtraction').prop("checked", true);
+                    $("#addition").prop("checked", false);
+                    $("#multiplication").prop("checked", false);
+                    $("#division").prop("checked", false);
+
+                    $("#result").val((firstNumber) - (secondNumber));
+                    });
+
+                    $("#secondNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#subtraction').prop("checked", true);
+                        $("#addition").prop("checked", false);
+                        $("#multiplication").prop("checked", false);
+                        $("#division").prop("checked", false);
+
+                        $("#result").val((firstNumber) - (secondNumber));
+                    });
+                }
+            });
+
+            $('#multiplication').change(function () {
+                if (this.checked) {
+
+                    $("#firstNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#multiplication').prop("checked", true);
+                        $("#addition").prop("checked", false);
+                        $("#subtraction").prop("checked", false);
+                        $("#division").prop("checked", false);
+
+                        $("#result").val((firstNumber) * (secondNumber));
+                    });
+
+                    $("#secondNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#multiplication').prop("checked", true);
+                        $("#addition").prop("checked", false);
+                        $("#subtraction").prop("checked", false);
+                        $("#division").prop("checked", false);
+
+                        $("#result").val((firstNumber) * (secondNumber));
+                    });
+
+                }
+            });
+
+            $('#division').change(function () {
+                if (this.checked) {
+
+                    $("#firstNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#division').prop("checked", true);
+                        $("#addition").prop("checked", false);
+                        $("#subtraction").prop("checked", false);
+                        $("#multiplication").prop("checked", false);
+
+                        $("#result").val((firstNumber) / (secondNumber));
+                    });
+
+                    $("#secondNumber").keyup(function () {
+                        var firstNumber = parseFloat($('#firstNumber').val());
+                        var secondNumber = parseFloat($('#secondNumber').val());
+
+                        $('#division').prop("checked", true);
+                        $("#addition").prop("checked", false);
+                        $("#subtraction").prop("checked", false);
+                        $("#multiplication").prop("checked", false);
+
+                        $("#result").val((firstNumber) / (secondNumber));
+                    });
+
                 }
             });
 
